@@ -1883,7 +1883,7 @@ jQuery(document).ready(function() {
         animation: "fade"
     });
 	
-	setTimeout(jQuery('.home_logo').fadeIn(1000), 1000);
+	setTimeout( function() { jQuery('.home_logo').fadeIn(1000) } , 1000);
 	
 	//FeedBack Form
 	jQuery('form input, form textarea').each(function(){
@@ -1910,8 +1910,7 @@ jQuery(window).load(function(){
 	
 });
 
-
-jQuery(window).resize(function(){
+function callResize() {
 	//mailchimp
 	jQuery('.mc_input').each(function(){
 		jQuery(this).width(jQuery(this).parents('.widget_mailchimpsf_widget').width()-42);
@@ -1925,7 +1924,11 @@ jQuery(window).resize(function(){
 	jQuery('form input, form textarea').each(function(){
 		jQuery(this).width(jQuery(this).parent('form').width()-40);
 	});	
-		
+}
+
+
+jQuery(window).resize(function(){
+	callResize();
 });
 
 function scrolled_menu() {

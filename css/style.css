@@ -194,10 +194,11 @@ strong { font-weight: 600;
 /** ABOUT SECTION **/
 #about{
 }
-#about header{
+#about {
+	background: #000;
 	background-image:url(../images/slider/bg.jpg);
 	background-position:center center;
-	background-attachment:fixed;
+	/*background-attachment:fixed;*/
 	background-size:cover;
 	background-repeat:no-repeat;
 }
@@ -1145,7 +1146,7 @@ p {
 #contact header{
 	background-image:url(../images/slider/blur.jpg);
 	background-position:center center;
-	background-attachment:fixed;
+	/*background-attachment:fixed;*/
 	background-size:cover;
 	background-repeat:no-repeat;
 }
