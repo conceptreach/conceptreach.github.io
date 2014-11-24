@@ -428,6 +428,8 @@
             } else {
                 errback(new Error('CORS not supported'));
             }
+
+            $('#submit_contact').hide();
         }
 
     function callback(text){
@@ -463,7 +465,7 @@ $.validate({
 
             var data = JSON.stringify(value_json);
 
-            // xdr(url, method, data, callback(), errback());
+            xdr(url, method, data, callback(), errback());
 
 
             return false
