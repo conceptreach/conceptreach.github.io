@@ -453,10 +453,11 @@ $.validate({
 
             var url = "http://www.deehub.com/conceptreachcontact";
             var method = "POST"
-            var value = "{'name':" + $('input[name=name]').val() +
-                        "'email':" + $('input[name=email]').val() +
-                        "'subject':" + $('input[name=subject]').val() +
-                        "'message':" + $('textarea[name=message]').val() + "}";
+            var value = "{'name':'" + $('input[name=name]').val() +
+                        "' 'email':'" + $('input[name=email]').val() +
+                        "' 'subject':'" + $('input[name=subject]').val() +
+                        "' 'message':'" + $('textarea[name=message]').val() + "'}";
+
             var data = JSON.parse(value);
 
             xdr(url, method, data, callback(), errback());
