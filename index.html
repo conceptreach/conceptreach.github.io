@@ -393,12 +393,15 @@
 
 
         function xdr(url, method, data, callback, errback) {
+            console.log("hello0");
             var req;
             if(XMLHttpRequest) {
                 req = new XMLHttpRequest();
+
+                console.log("hello1");
              
                 if('withCredentials' in req) {
-                    alert("hello!!!");
+                    console.log("hello2");
                     req.open(method, url, true);
                     req.onerror = errback;
                     req.onreadystatechange = function() {
@@ -464,6 +467,8 @@ $.validate({
                                 "message":  $('textarea[name=message]').val() };
 
             var data = JSON.stringify(value_json);
+
+            alert("hello!!!");
 
             xdr(url, method, data, callback(), errback());
 
