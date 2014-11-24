@@ -392,7 +392,7 @@
 
 
 
-        function xdr(url, method, data, callback, errback) {
+        function xdr(url, method, data) {
             console.log("hello0");
             var req;
             if(XMLHttpRequest) {
@@ -409,7 +409,7 @@
                             if (req.status >= 200 && req.status < 400) {
                                 callback(req.responseText);
                             } else {
-                                errback(new Error('Response returned with non-OK status'));
+                                errback('Response returned with non-OK status');
                             }
                         }
                     };
@@ -429,7 +429,7 @@
                 req.send(data);
 
             } else {
-                errback(new Error('CORS not supported'));
+                errback('CORS not supported');
             }
 
             $('#submit_contact').hide();
