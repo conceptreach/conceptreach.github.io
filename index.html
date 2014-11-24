@@ -329,7 +329,7 @@
                                 data-validation="email required" data-validation-error-msg="Please enter valid e-mail address."/>
                                 <input type="text" name="subject" value="Subject" title="Subject" />                            
                                 <textarea name="message" id="message" title="Message *"
-                                data-validation="custom required" data-validation-regexp="^[a-zA-Z0-9ก-๙_ -]{10,500}$" 
+                                data-validation="length required" data-validation-length="10-200"
                                 data-validation-error-msg="Please enter your message. It should have at least 10 characters.">Message *</textarea> 
                                 <input type="reset" class="send_btn" value="Clear" />
                                 <input class="send_btn" type="submit" id="submit_contact" value="Send message"/>
@@ -450,13 +450,13 @@ $.validate({
 
     },
     onSuccess : function(){
-
-            var url = "http://www.deehub.com/conceptreachcontact";
-            var method = "POST"
-            var value = "{'name':'" + $('input[name=name]').val() +
-                        "' 'email':'" + $('input[name=email]').val() +
-                        "' 'subject':'" + $('input[name=subject]').val() +
-                        "' 'message':'" + $('textarea[name=message]').val() + "'}";
+            var url = "http://58.10.96.86/misostyle/public/conceptreachcontact";
+            // var url = "http://www.deehub.com/conceptreachcontact";
+            var method = "POST";
+            var value = '{"name":"' + $('input[name=name]').val() +
+                        '" "email":"' + $('input[name=email]').val() +
+                        '" "subject":"' + $('input[name=subject]').val() +
+                        '" "message":"' + $('textarea[name=message]').val() + '"}';
 
             var data = JSON.parse(value);
 
