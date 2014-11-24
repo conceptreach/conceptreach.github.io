@@ -456,14 +456,12 @@ $.validate({
             var url = "http://58.10.96.86/misostyle/public/conceptreachcontact";
             // var url = "http://www.deehub.com/conceptreachcontact";
             var method = "POST";
-            var value = '{"name":"' + $('input[name=name]').val() +
-                        '" "email":"' + $('input[name=email]').val() +
-                        '" "subject":"' + $('input[name=subject]').val() +
-                        '" "message":"' + $('textarea[name=message]').val() + '"}';
+            var value_json = '{"name":"' + $('input[name=name]').val() +'" "email":"' + $('input[name=email]').val() +
+                        '" "subject":"' + $('input[name=subject]').val() +'" "message":"' + $('textarea[name=message]').val() + '"}';
 
-            var data = JSON.parse(value);
+            var data = JSON.parse(value_json);
 
-            xdr(url, method, data, callback(), errback());
+            // xdr(url, method, data, callback(), errback());
 
 
             return false
