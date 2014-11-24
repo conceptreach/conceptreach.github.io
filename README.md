@@ -1,4 +1,4 @@
-conceptreach.github.io
-======================
+conceptreach
+============
 
-Conceptreach website
+website for ConceptReach.com
