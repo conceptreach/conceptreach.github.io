@@ -332,7 +332,7 @@
                                 data-validation="custom required" data-validation-regexp="^[a-zA-Z0-9ก-๙_ -]{10,500}$" 
                                 data-validation-error-msg="Please enter your message. It should have at least 10 characters.">Message *</textarea> 
                                 <input type="reset" class="send_btn" value="Clear" />
-                                <input class="send_btn" type="submit" id="submit_contact" value="Sending message"/>
+                                <input class="send_btn" type="submit" id="submit_contact" value="Send message"/>
                             </form>
                         </div>
                     </div>
@@ -422,7 +422,9 @@ $.validate({
                                    $('#note').html(result);
                     },
                 }).done(function( msg ) {
+                    console.log(msg);
                     if(msg == true){
+                        console.log("------------" + msg);
                         result = '<div class="notification_ok">Your message has been sent. Thank you!</div>';
                         $("#fields").hide();
                     }else{
