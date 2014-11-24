@@ -405,7 +405,7 @@
                 if('withCredentials' in req) {
                     console.log("hello2");
                     req.open(method, url, true);
-
+                    req.setRequestHeader('Content-Type', 'application/json');
                     req.onload = function () {
                         var msg = req.responseText;
                         callback(msg)
