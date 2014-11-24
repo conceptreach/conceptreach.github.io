@@ -403,16 +403,11 @@
                 if('withCredentials' in req) {
                     console.log("hello2");
                     req.open(method, url, true);
-                    req.onerror = errback;
-                    req.onreadystatechange = function() {
-                        if (req.readyState === 4) {
-                            if (req.status >= 200 && req.status < 400) {
-                                callback(req.responseText);
-                            } else {
-                                errback('Response returned with non-OK status');
-                            }
-                        }
-                    };
+
+                    req.onload = function () {
+                        var msg = req.responseText;
+                        callback(msg)
+                    }
 
                 req.send(data);
                 }
@@ -420,7 +415,6 @@
             } else if( XDomainRequest) {
                 req = new XDomainRequest();
                 req.open(method, url);
-                req.onerror = errback;
 
                 req.onload = function() {
                     callback(req.responseText);
@@ -432,7 +426,7 @@
                 errback('CORS not supported');
             }
 
-            $('#submit_contact').hide();
+            $('#submit_contact').show();
         }
 
     function callback(text){
@@ -458,7 +452,7 @@ $.validate({
     onSuccess : function(){
              $('#submit_contact').hide();
 
-            var url = "http://58.10.96.86/misostyle/public/conceptreachcontact";
+            var url = "http://110.169.42.177/misostyle/public/conceptreachcontact";
             // var url = "http://www.deehub.com/conceptreachcontact";
             var method = "POST";
             var value_json = {"name": $('input[name=name]').val() , 
@@ -470,7 +464,7 @@ $.validate({
 
             alert("hello!!!");
 
-            xdr(url, method, data, callback(), errback());
+            xdr(url, method, data);
 
 
             return false
@@ -494,9 +488,7 @@ $.validate({
                                    $('#note').html(result);
                     },
                 }).done(function( msg ) {
-                    console.log(msg);
                     if(msg == true){
-                        console.log("------------" + msg);
                         result = '<div class="notification_ok">Your message has been sent. Thank you!</div>';
                         $("#fields").hide();
                     }else{
