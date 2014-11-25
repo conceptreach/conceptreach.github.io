@@ -1894,7 +1894,7 @@ jQuery(document).ready(function() {
 
 jQuery(window).load(function(){
 	// Carouselslider
-	jQuery('.carouselslider').each(function(){
+	jQuery('.carouselslider').not('.noslider').each(function(){
 		dispNum = parseInt(jQuery(this).attr('data-count'));
 		if (jQuery(window).width()< 760) {
 			dispNum = 1;
