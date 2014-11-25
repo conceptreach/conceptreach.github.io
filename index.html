@@ -396,11 +396,11 @@
 
 
         function xdr(url, method, data) {
-            $('#submit_contact').hide();
-            $('#submit_clear').hide();
-            $('#submit_loader').show();
+            // $('#submit_contact').hide();
+            // $('#submit_clear').hide();
+            // $('#submit_loader').show();
 
-            
+
             var req;
             if(XMLHttpRequest) {
                 req = new XMLHttpRequest();
@@ -431,9 +431,7 @@
             }
 
             
-            $('#submit_loader').hide();
-            $('#submit_contact').show();
-            $('#submit_clear').show();
+            
         }
 
     function callback(text){
@@ -446,6 +444,10 @@
         }else{
             $('#submit_contact').show();
             result = '<div class="notification_error">Fail to send message</div>';
+            
+            $('#submit_loader').hide();
+            $('#submit_contact').show();
+            $('#submit_clear').show();
         }
         $('#note').html(result);
     }
@@ -467,9 +469,9 @@ $.validate({
 
     },
     onSuccess : function(){
-             // $('#submit_contact').hide();
-             // $('#submit_clear').hide();
-             // $('#submit_loader').show();
+             $('#submit_contact').hide();
+             $('#submit_clear').hide();
+             $('#submit_loader').show();
 
             // var url = "http://58.10.96.86/misostyle/public/conceptreachcontact";
             var url = "http://www.deehub.com/conceptreachcontact";
