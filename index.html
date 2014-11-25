@@ -331,11 +331,11 @@
                                 <textarea name="message" id="message" title="Message *"
                                 data-validation="length required" data-validation-length="10-200"
                                 data-validation-error-msg="Please enter your message. It should have at least 10 characters.">Message *</textarea> 
-                                <input type="reset" class="send_btn" value="Clear" />
+                                <input id="submit_clear" type="reset" class="send_btn" value="Clear" />
                                 <input class="send_btn" type="submit" id="submit_contact" value="Send message"/>
-                                <p id="submit_loader" style="display: none" >
-                                    <img src="images/loader.gif"/>
-                                </p>
+
+                                <img id="submit_loader" style="display: none;" class="send_btn" src="images/loader.gif"/>
+                                
                             </form>
                         </div>
                     </div>
@@ -425,8 +425,10 @@
                 errback('CORS not supported');
             }
 
-            $('#submit_contact').show();
+            
             $('#submit_loader').hide();
+            $('#submit_contact').show();
+            $('#submit_clear').show();
         }
 
     function callback(text){
@@ -461,7 +463,10 @@ $.validate({
     },
     onSuccess : function(){
              $('#submit_contact').hide();
+             $('#submit_clear').hide();
              $('#submit_loader').show();
+
+             return false;
 
             // var url = "http://58.10.96.86/misostyle/public/conceptreachcontact";
             var url = "http://www.deehub.com/conceptreachcontact";
