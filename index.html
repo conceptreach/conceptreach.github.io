@@ -333,6 +333,7 @@
                                 data-validation-error-msg="Please enter your message. It should have at least 10 characters.">Message *</textarea> 
                                 <input type="reset" class="send_btn" value="Clear" />
                                 <input class="send_btn" type="submit" id="submit_contact" value="Send message"/>
+                                <img id="submit_loader" style="display: none" src="images/loader.gif"/>
                             </form>
                         </div>
                     </div>
@@ -393,17 +394,11 @@
 
 
         function xdr(url, method, data) {
-            console.log(url);
-            console.log(method);
-            console.log(data);
             var req;
             if(XMLHttpRequest) {
                 req = new XMLHttpRequest();
-
-                console.log("hello1");
              
                 if('withCredentials' in req) {
-                    console.log("hello2");
                     req.open(method, url, true);
                     req.setRequestHeader('Content-Type', 'application/json');
                     req.onload = function () {
@@ -429,10 +424,21 @@
             }
 
             $('#submit_contact').show();
+            $('#submit_loader').hide();
         }
 
     function callback(text){
-        console.log("response: "+text);
+
+        var msg = text;
+
+        if(msg == "true"){
+            result = '<div class="notification_ok">Your message has been sent. Thank you!</div>';
+            $("#fields").hide();
+        }else{
+            $('#submit_contact').show();
+            result = '<div class="notification_error">Fail to send message</div>';
+        }
+        $('#note').html(result);
     }
 
     function errback(text){
@@ -453,9 +459,10 @@ $.validate({
     },
     onSuccess : function(){
              $('#submit_contact').hide();
+             $('#submit_loader').show();
 
-            var url = "http://58.10.96.86/misostyle/public/conceptreachcontact";
-            // var url = "http://www.deehub.com/conceptreachcontact";
+            // var url = "http://58.10.96.86/misostyle/public/conceptreachcontact";
+            var url = "http://www.deehub.com/conceptreachcontact";
             var method = "POST";
             var value_json = {name: $('input[name=name]').val() , 
                                 email : $('input[name=email]').val() ,  
@@ -464,43 +471,41 @@ $.validate({
 
             var data = JSON.stringify(value_json);
 
-            alert("hello!!!");
-
             xdr(url, method, data);
 
 
             return false
 
-            $('#submit_contact').hide();
-            var result = "";    
+            // $('#submit_contact').hide();
+            // var result = "";    
 
-            $.ajax({
-                type: "POST",
-                url: "http://www.deehub.com/conceptreachcontact",
-                data:   {name: $('input[name=name]').val() ,
-                        email: $('input[name=email]').val() ,
-                        subject: $('input[name=subject]').val(),
-                        message: $('textarea[name=message]').val(),
-                        },
+            // $.ajax({
+            //     type: "POST",
+            //     url: "http://www.deehub.com/conceptreachcontact",
+            //     data:   {name: $('input[name=name]').val() ,
+            //             email: $('input[name=email]').val() ,
+            //             subject: $('input[name=subject]').val(),
+            //             message: $('textarea[name=message]').val(),
+            //             },
 
-                dataType:"json",
-                error:function(XMLHttpRequest, textStatus, errorThrown) { 
-                                   result = '<div class="notification_error">Fail to send message</div>';
-                                   $('#submit_contact').show();
-                                   $('#note').html(result);
-                    },
-                }).done(function( msg ) {
-                    if(msg == true){
-                        result = '<div class="notification_ok">Your message has been sent. Thank you!</div>';
-                        $("#fields").hide();
-                    }else{
-                        $('#submit_contact').show();
-                        result = '<div class="notification_error">Fail to send message</div>';
-                    }
-                    $('#note').html(result);
-                });
+            //     dataType:"json",
+            //     error:function(XMLHttpRequest, textStatus, errorThrown) { 
+            //                        result = '<div class="notification_error">Fail to send message</div>';
+            //                        $('#submit_contact').show();
+            //                        $('#note').html(result);
+            //         },
+            //     }).done(function( msg ) {
+            //         if(msg == true){
+            //             result = '<div class="notification_ok">Your message has been sent. Thank you!</div>';
+            //             $("#fields").hide();
+            //         }else{
+            //             $('#submit_contact').show();
+            //             result = '<div class="notification_error">Fail to send message</div>';
+            //         }
+            //         $('#note').html(result);
+            //     });
             
-            return false;
+            // return false;
                            
     }  
 });       
