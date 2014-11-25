@@ -550,6 +550,7 @@ p {
 .team_in {padding:0 25px;
 }
 .team_in p {
+	font-size: 11px;
 	max-height:54px;
 	overflow:hidden;
 	padding:10px 0 0 0;

@@ -225,8 +225,8 @@ This software is licensed under the CC-GNU LGPL <http://creativecommons.org/lice
 			dispItems: 1,
 			pagination: false,
 			paginationPosition: "inside",
-			nextBtn: '<input type="button" value="" />',
-			prevBtn: '<input type="button" value="" />',
+			// nextBtn: '<input type="button" value="" />',
+			// prevBtn: '<input type="button" value="" />',
 			btnsPosition: "inside",
 			nextBtnInsert: "insertAfter",
 			prevBtnInsert: "insertBefore",
@@ -321,8 +321,8 @@ This software is licensed under the CC-GNU LGPL <http://creativecommons.org/lice
 			}
 			
 			// Add buttons classes / data
-			env.$elts.nextBtn.addClass("carousel-control next carousel-next");
-			env.$elts.prevBtn.addClass("carousel-control previous carousel-previous");
+			// env.$elts.nextBtn.addClass("carousel-control next carousel-next");
+			// env.$elts.prevBtn.addClass("carousel-control previous carousel-previous");
 			
 			// Last items to load in ajaxMode var
 			env.lastItemsToLoad;
@@ -1740,7 +1740,7 @@ jQuery(document).ready(function() {
 	}
 	else {
 		// Activete Menu Link
-		calculateScroll();
+		// calculateScroll();
 	}
 		
 	//Fixed Menu
@@ -1768,7 +1768,7 @@ jQuery(document).ready(function() {
 	}
 	else {
 		$(window).scroll(function(event) {
-			calculateScroll();
+			// calculateScroll();
 		});
 		$('.navmenu ul li a, .mobile_menu ul li a, .next_section, #logo a, .home_logo a').click(function() {  
 			$('html, body').animate({scrollTop: $(this.hash).offset().top - 80}, 1000);
