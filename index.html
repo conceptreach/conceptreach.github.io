@@ -396,6 +396,11 @@
 
 
         function xdr(url, method, data) {
+            $('#submit_contact').hide();
+            $('#submit_clear').hide();
+            $('#submit_loader').show();
+
+            
             var req;
             if(XMLHttpRequest) {
                 req = new XMLHttpRequest();
@@ -462,9 +467,9 @@ $.validate({
 
     },
     onSuccess : function(){
-             $('#submit_contact').hide();
-             $('#submit_clear').hide();
-             $('#submit_loader').show();
+             // $('#submit_contact').hide();
+             // $('#submit_clear').hide();
+             // $('#submit_loader').show();
 
             // var url = "http://58.10.96.86/misostyle/public/conceptreachcontact";
             var url = "http://www.deehub.com/conceptreachcontact";
