@@ -191,6 +191,17 @@ strong { font-weight: 600;
 	display: block;
 }
 
+.easyidlogo {
+	margin: 0 auto 10px;
+	display: block;
+	width: 50%;
+	text-align: center;
+}
+
+.easyidlogo img {
+	/*display: block;*/
+}
+
 /** ABOUT SECTION **/
 #about{
 }
@@ -201,6 +212,25 @@ strong { font-weight: 600;
 	/*background-attachment:fixed;*/
 	background-size:cover;
 	background-repeat:no-repeat;
+}
+
+#service {
+	background: #000;
+	background-image:url(../images/slider/bg2.jpg);
+	background-position:center center;
+	/*background-attachment:fixed;*/
+	background-size:cover;
+	background-repeat:no-repeat;
+}
+
+.service-item {
+	text-align: center;
+}
+
+.icon {
+	width: 40%;
+	height: auto;
+	fill: grey;
 }
 
 #home{position:relative;
