@@ -230,7 +230,7 @@ strong { font-weight: 600;
 .icon {
 	width: 40%;
 	height: auto;
-	fill: grey;
+	fill: #0F75BB;
 }
 
 #home{position:relative;
